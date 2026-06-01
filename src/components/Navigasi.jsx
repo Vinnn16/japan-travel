@@ -10,12 +10,19 @@ function Navigasi() {
   const isHome = location.pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navbarClass = isHome && !scrolled ? "navbar-home" : "navbar-solid";
+  // Tutup menu saat pindah halaman
+  useEffect(() => {
+    setExpanded(false);
+  }, [location]);
+
+  // Di home: transparan jika belum scroll, solid jika sudah scroll
+  // Di halaman lain: selalu solid
+  const isTransparent = isHome && !scrolled;
 
   const links = [
     { to: "/", label: "Home" },
@@ -29,40 +36,48 @@ function Navigasi() {
     <Navbar
       expand="lg"
       expanded={expanded}
-      className={`konten-navbar ${navbarClass}`}
+      className={`konten-navbar ${isTransparent ? "nav-transparent" : "nav-solid"}`}
     >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="brand">
-          <div className="brand-icon">🗾</div>
-          <span>Japan Travel</span>
+        {/* Brand */}
+        <Navbar.Brand as={Link} to="/" className="nav-brand">
+          <div className="nav-brand-icon">🗾</div>
+          <span className="nav-brand-text">Japan Travel</span>
         </Navbar.Brand>
 
+        {/* Hamburger */}
         <Navbar.Toggle
-          aria-controls="navbar-nav"
+          aria-controls="main-nav"
           onClick={() => setExpanded(!expanded)}
-        />
+          className="nav-toggler"
+        >
+          <span className="toggler-bar" />
+          <span className="toggler-bar" />
+          <span className="toggler-bar" />
+        </Navbar.Toggle>
 
-        <Navbar.Collapse id="navbar-nav">
-          <Nav className="ms-auto nav-links">
+        {/* Links */}
+        <Navbar.Collapse id="main-nav">
+          <Nav className="ms-auto nav-menu">
             {links.map((link) => (
               <Nav.Link
                 key={link.to}
                 as={Link}
                 to={link.to}
-                className={location.pathname === link.to ? "active" : ""}
+                className={`nav-item-link ${location.pathname === link.to ? "nav-active" : ""}`}
                 onClick={() => setExpanded(false)}
               >
                 {link.label}
+                {location.pathname === link.to && <span className="nav-dot" />}
               </Nav.Link>
             ))}
-            <Nav.Link
-              as={Link}
+            <Link
               to="/contact"
-              className="nav-cta"
+              className="nav-book-btn"
               onClick={() => setExpanded(false)}
             >
               Book Now
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,113 +1,185 @@
+/* ===== BASE ===== */
 .konten-navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1050;
-  padding: 14px 0;
-  transition: all 0.35s ease;
+  transition: all 0.4s ease;
+  padding: 16px 0;
 }
 
-.navbar-home {
+/* Transparan — hanya di hero home sebelum scroll */
+.nav-transparent {
   background: transparent;
   box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.navbar-solid {
-  background: rgba(15, 15, 30, 0.97);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-  padding: 10px 0;
+/* Solid — setelah scroll atau di halaman lain */
+.nav-solid {
+  background: rgba(10, 10, 25, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.3);
+  padding: 12px 0;
 }
 
-/* Brand */
-.brand {
+/* ===== BRAND ===== */
+.nav-brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
-.brand-icon {
-  font-size: 26px;
+.nav-brand-icon {
+  font-size: 28px;
   line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
-.brand span {
+.nav-brand-text {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 800;
   color: white !important;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.02em;
+  transition: color 0.2s;
 }
 
-.navbar-brand:hover .brand span {
+.nav-brand:hover .nav-brand-text {
   color: #f0c060 !important;
 }
 
-/* Nav links */
-.nav-links {
-  align-items: center;
-  gap: 4px;
+/* ===== HAMBURGER CUSTOM ===== */
+.nav-toggler {
+  background: rgba(255,255,255,0.1) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 8px !important;
+  padding: 8px 10px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
 }
 
-.konten-navbar .nav-link {
-  color: rgba(255, 255, 255, 0.85) !important;
+.toggler-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ===== NAV MENU ===== */
+.nav-menu {
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-item-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.8) !important;
   font-size: 14px;
   font-weight: 500;
   padding: 8px 14px !important;
   border-radius: 8px;
   transition: all 0.2s;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  text-decoration: none !important;
 }
 
-.konten-navbar .nav-link:hover {
+.nav-item-link:hover {
   color: white !important;
   background: rgba(255, 255, 255, 0.1);
 }
 
-.konten-navbar .nav-link.active {
+/* Active state */
+.nav-item-link.nav-active {
   color: white !important;
-  background: rgba(255, 255, 255, 0.15);
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* CTA Button */
-.nav-cta {
-  background: #e63946 !important;
+/* Dot indicator bawah link aktif */
+.nav-dot {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: #f0c060;
+  border-radius: 50%;
+}
+
+/* ===== BOOK NOW BUTTON ===== */
+.nav-book-btn {
+  display: inline-block;
+  margin-left: 12px;
+  padding: 9px 20px;
+  background: linear-gradient(135deg, #e63946, #c1121f);
   color: white !important;
-  border-radius: 8px !important;
-  padding: 8px 18px !important;
-  font-weight: 600 !important;
-  margin-left: 8px;
-  transition: background 0.2s !important;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 99px;
+  text-decoration: none !important;
+  transition: all 0.25s;
+  box-shadow: 0 2px 12px rgba(230, 57, 70, 0.4);
+  letter-spacing: 0.02em;
 }
 
-.nav-cta:hover {
-  background: #c1121f !important;
+.nav-book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
   color: white !important;
 }
 
-/* Hamburger */
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.5) !important;
-  padding: 4px 8px;
-}
-
-.navbar-toggler-icon {
-  filter: invert(1);
-}
-
+/* ===== MOBILE ===== */
 @media (max-width: 991px) {
-  .navbar-collapse {
-    background: rgba(15, 15, 30, 0.98);
-    padding: 16px;
-    border-radius: 12px;
-    margin-top: 10px;
+  .konten-navbar {
+    padding: 12px 0;
   }
 
-  .nav-cta {
-    margin-left: 0 !important;
+  .navbar-collapse {
+    background: rgba(10, 10, 25, 0.98);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 16px;
+    margin-top: 12px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .nav-item-link {
+    padding: 12px 16px !important;
+    border-radius: 10px;
+    font-size: 15px;
+  }
+
+  .nav-item-link.nav-active {
+    background: rgba(255,255,255,0.08);
+  }
+
+  .nav-dot {
+    left: auto;
+    right: 14px;
+    bottom: 50%;
+    transform: translateY(50%);
+    width: 6px;
+    height: 6px;
+  }
+
+  .nav-book-btn {
+    margin-left: 0;
     margin-top: 8px;
-    display: inline-block;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    display: block;
   }
 }
