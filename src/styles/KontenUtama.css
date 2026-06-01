@@ -1,123 +1,127 @@
 .Mybg {
     background-image: url("https://img.freepik.com/free-vector/watercolour-background-with-leaves_91008-317.jpg?t=st=1736574781~exp=1736578381~hmac=d0dadd8f1910af70b52ab7b33d2df19e9e88870f65fa6c8c83d65fe50ed35168&w=996");
-    background-size: cover; /* Gambar memenuhi area */
-    background-repeat: no-repeat; /* Tidak ada pengulangan gambar */
-    background-position: center; /* Pusatkan gambar */
-    min-height: 100vh; /* Tinggi minimal sesuai layar */
-    padding: 20px; /* Jarak dalam untuk elemen */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertikal rata tengah */
+    justify-content: center;
 }
 
-.page-1 {
+.page-1, .page-2 {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.page-2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.gambar-tokyo {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-}
-
-.text-header-tokyo {
-    margin-top: 5px;
-    font-size: 25px;
-}
-
-.text-tokyo {
-    text-align: center;
-    font-size: 15px;
-}
-
-
-.gambar-kawaguchiko {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-}
-
-.text-header-kawaguchiko {
-    margin-top: 5px;
-    font-size: 25px;
-}
-
-.text-kawaguchiko {
-    text-align: center;
-    font-size: 15px;
-}
-
-
-.gambar-kyoto {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-}
-
-.text-header-kyoto{
-    margin-top: 5px;
-    font-size: 25px;
-}
-
-.text-kyoto {
-    text-align: center;
-    font-size: 15px;
-}
-
-.gambar-shirakawago {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-}
-
-.text-header-shirakawago{
-    margin-top: 5px;
-    font-size: 25px;
-}
-
-.text-shirakawago {
-    text-align: center;
-    font-size: 15px;
-}
-
-.gambar-osaka {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-}
-
-.text-header-osaka {
-    margin-top: 5px;
-    font-size: 25px;
-}
-
-.text-osaka {
-    text-align: center;
-    font-size: 15px;
-}
-
+/* Semua gambar destinasi pakai class yang sama */
+.gambar-tokyo,
+.gambar-kawaguchiko,
+.gambar-kyoto,
+.gambar-shirakawago,
+.gambar-osaka,
 .gambar-hokkaido {
     width: 220px;
     height: 220px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
+/* Semua text header destinasi */
+.text-header-tokyo,
+.text-header-kawaguchiko,
+.text-header-kyoto,
+.text-header-shirakawago,
+.text-header-osaka,
 .text-header-hokkaido {
     margin-top: 5px;
     font-size: 25px;
 }
 
+/* Semua text deskripsi destinasi */
+.text-tokyo,
+.text-kawaguchiko,
+.text-kyoto,
+.text-shirakawago,
+.text-osaka,
 .text-hokkaido {
     text-align: center;
     font-size: 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet (max 768px) */
+@media (max-width: 768px) {
+    .gambar-tokyo,
+    .gambar-kawaguchiko,
+    .gambar-kyoto,
+    .gambar-shirakawago,
+    .gambar-osaka,
+    .gambar-hokkaido {
+        width: 160px;
+        height: 160px;
+    }
+
+    .text-header-tokyo,
+    .text-header-kawaguchiko,
+    .text-header-kyoto,
+    .text-header-shirakawago,
+    .text-header-osaka,
+    .text-header-hokkaido {
+        font-size: 20px;
+    }
+
+    .text-tokyo,
+    .text-kawaguchiko,
+    .text-kyoto,
+    .text-shirakawago,
+    .text-osaka,
+    .text-hokkaido {
+        font-size: 13px;
+    }
+
+    .page-1, .page-2 {
+        gap: 12px;
+    }
+}
+
+/* HP (max 480px) */
+@media (max-width: 480px) {
+    .Mybg {
+        padding: 20px 10px;
+    }
+
+    .gambar-tokyo,
+    .gambar-kawaguchiko,
+    .gambar-kyoto,
+    .gambar-shirakawago,
+    .gambar-osaka,
+    .gambar-hokkaido {
+        width: 120px;
+        height: 120px;
+    }
+
+    .text-header-tokyo,
+    .text-header-kawaguchiko,
+    .text-header-kyoto,
+    .text-header-shirakawago,
+    .text-header-osaka,
+    .text-header-hokkaido {
+        font-size: 16px;
+    }
+
+    .text-tokyo,
+    .text-kawaguchiko,
+    .text-kyoto,
+    .text-shirakawago,
+    .text-osaka,
+    .text-hokkaido {
+        font-size: 12px;
+    }
 }
