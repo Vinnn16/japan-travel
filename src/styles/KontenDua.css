@@ -1,0 +1,77 @@
+.MyBg{
+    background-image: url("https://img.freepik.com/free-photo/background-beige-watercolor-with-orange-pastel-stains-simple-style_53876-108709.jpg?t=st=1736576162~exp=1736579762~hmac=27f818a8b27ac297a8700d72b52d6c793fc31bcdb8c48ae52a08dbc8b8143401&w=996");
+    background-size: cover; /* Gambar memenuhi area */
+    background-repeat: no-repeat; /* Tidak ada pengulangan gambar */
+    background-position: center; /* Pusatkan gambar */
+    min-height: 50vh; /* Tinggi minimal sesuai layar */
+    padding: 20px; /* Jarak dalam untuk elemen */
+}
+
+.text-header {
+    font-size: 35px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.underline {
+    margin-left: 640px;
+    border-bottom: 5px solid #000; /* Garis bawah */
+    width: 12%; /* Garis memenuhi lebar container */
+    margin-bottom: 20px; /* Jarak di bawah header */
+}
+
+@media (max-width: 768px) {
+    .underline {
+        width: 20%; /* Lebar garis lebih besar untuk tablet */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .underline {
+        width: 30%; /* Lebar garis lebih besar untuk ponsel */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.text-content {
+    font-size: 17px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+    .text-content {
+        font-size: 16px; /* Ukuran lebih kecil untuk tablet */
+        line-height: 1.5; /* Sesuaikan jarak antar baris */
+    }
+}
+
+@media (max-width: 480px) {
+    .text-content {
+        font-size: 14px; /* Ukuran lebih kecil untuk ponsel */
+        line-height: 1.4; /* Sesuaikan jarak antar baris */
+    }
+}
+
+.accordion {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.accordion-item {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+
+
+.accordion-body {
+    font-size: 17px;
+}
