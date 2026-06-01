@@ -4,7 +4,7 @@ import CustomerReview from "../components/CustomerReview";
 function ReviewPage() {
   return (
     <>
-      <div style={{ paddingTop: "80px" }}>
+      <div style={{ paddingTop: "20px" }}>
         <CustomerReview />
       </div>
     </>

@@ -4,7 +4,7 @@ import ContactUs from "../components/ContactUs";
 function ContactPage() {
   return (
     <>
-      <div style={{ paddingTop: "80px" }}>
+      <div style={{ paddingTop: "20px" }}>
         <ContactUs />
       </div>
     </>

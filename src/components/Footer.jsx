@@ -4,7 +4,7 @@ import "../styles/Footer.css";
 function Footer() {
   return (
     <footer>
-      <p>&copy; 2025 Website Saya. Semua hak dilindungi.</p>
+      <p>&copy; 2026 Website Saya. Semua hak dilindungi.</p>
     </footer>
   );
 }
