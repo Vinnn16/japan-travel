@@ -1,0 +1,208 @@
+.about-page { overflow-x: hidden; }
+
+.about-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 360px;
+  background: url("https://cdn.pixabay.com/photo/2014/09/09/14/20/city-440102_960_720.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15,15,30,0.7);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 0 20px;
+  padding-top: 80px;
+}
+
+.about-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 99px;
+  margin-bottom: 16px;
+}
+
+.about-hero-content h1 { font-size: 48px; font-weight: 800; margin-bottom: 12px; }
+.about-hero-content p { font-size: 16px; color: rgba(255,255,255,0.75); max-width: 500px; margin: auto; }
+
+.section-tag-about {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #e63946;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.about-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f0f1e;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.about-story { padding: 80px 0; background: white; }
+
+.about-text {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.btn-about-cta {
+  display: inline-block;
+  background: #e63946;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.btn-about-cta:hover { background: #c1121f; color: white; }
+
+.about-img-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.about-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.about-img-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: white;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.aib-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 800;
+  color: #e63946;
+  line-height: 1;
+}
+
+.aib-text {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.about-values {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.value-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  height: 100%;
+  transition: box-shadow 0.2s;
+}
+
+.value-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+.value-icon { font-size: 36px; margin-bottom: 14px; }
+
+.value-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f0f1e;
+  margin-bottom: 8px;
+}
+
+.value-desc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.about-team {
+  padding: 80px 0;
+  background: white;
+}
+
+.team-card {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s;
+}
+
+.team-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+.team-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 auto 14px;
+}
+
+.team-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f0f1e;
+  margin-bottom: 4px;
+}
+
+.team-role {
+  font-size: 13px;
+  color: #e63946;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.team-desc {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .about-hero-content h1 { font-size: 32px; }
+  .about-title { font-size: 24px; }
+  .about-img { height: 280px; }
+  .about-story, .about-values, .about-team { padding: 50px 0; }
+}

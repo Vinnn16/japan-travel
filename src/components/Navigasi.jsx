@@ -1,51 +1,67 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import "../styles/Navigasi.css";
 
 function Navigasi() {
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const isHome = location.pathname === "/";
 
-  // Navbar transparan hanya di home, gelap di halaman lain
-  const isHome = location.pathname === "";
-  const navbarClass = isHome ? "navbar-home" : "navbar-solid";
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navbarClass = isHome && !scrolled ? "navbar-home" : "navbar-solid";
+
+  const links = [
+    { to: "/", label: "Home" },
+    { to: "/destinations", label: "Destinations" },
+    { to: "/about", label: "About" },
+    { to: "/review", label: "Reviews" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   return (
-    <Navbar expand="lg" className={`konten-navbar ${navbarClass}`}>
+    <Navbar
+      expand="lg"
+      expanded={expanded}
+      className={`konten-navbar ${navbarClass}`}
+    >
       <Container>
-        <Navbar.Brand as={Link} to="/">
-          <img
-            className="logo-navbar"
-            src="https://as1.ftcdn.net/v2/jpg/03/75/05/14/1000_F_375051496_8bBDhtCfF5Xi6L76GmENpEcK7bbWnc2l.jpg"
-            alt="Japan Travel Logo"
-          />
-          Japan Travel
+        <Navbar.Brand as={Link} to="/" className="brand">
+          <div className="brand-icon">🗾</div>
+          <span>Japan Travel</span>
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="navbar-nav"
+          onClick={() => setExpanded(!expanded)}
+        />
 
         <Navbar.Collapse id="navbar-nav">
-          <Nav className="ms-auto">
-            <Nav.Link
-              as={Link}
-              to="/"
-              className={location.pathname === "/" ? "active" : ""}
-            >
-              Home
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              to="/review"
-              className={location.pathname === "/review" ? "active" : ""}
-            >
-              Customer Review
-            </Nav.Link>
+          <Nav className="ms-auto nav-links">
+            {links.map((link) => (
+              <Nav.Link
+                key={link.to}
+                as={Link}
+                to={link.to}
+                className={location.pathname === link.to ? "active" : ""}
+                onClick={() => setExpanded(false)}
+              >
+                {link.label}
+              </Nav.Link>
+            ))}
             <Nav.Link
               as={Link}
               to="/contact"
-              className={location.pathname === "/contact" ? "active" : ""}
+              className="nav-cta"
+              onClick={() => setExpanded(false)}
             >
-              Contact Us
+              Book Now
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
