@@ -7,10 +7,9 @@ function Navigasi() {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [expanded, setExpanded] = useState(false);
-  const isHome = location.pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -18,8 +17,6 @@ function Navigasi() {
   useEffect(() => {
     setExpanded(false);
   }, [location]);
-
-  const isTransparent = isHome && !scrolled;
 
   const links = [
     { to: "/", label: "Home" },
@@ -33,16 +30,14 @@ function Navigasi() {
     <Navbar
       expand="lg"
       expanded={expanded}
-      className={`konten-navbar ${isTransparent ? "tema-transparan" : "tema-solid"}`}
+      className={`konten-navbar ${scrolled ? "nav-scrolled" : ""}`}
     >
       <Container>
-        {/* Brand */}
         <Navbar.Brand as={Link} to="/" className="nav-brand">
-          <div className="nav-brand-icon">⛩️</div>
+          <span className="nav-brand-icon">⛩️</span>
           <span className="nav-brand-text">Japan Travel</span>
         </Navbar.Brand>
 
-        {/* Hamburger */}
         <Navbar.Toggle
           aria-controls="main-nav"
           onClick={() => setExpanded(!expanded)}
@@ -53,7 +48,6 @@ function Navigasi() {
           <span className="toggler-bar" />
         </Navbar.Toggle>
 
-        {/* Links */}
         <Navbar.Collapse id="main-nav">
           <Nav className="ms-auto nav-menu">
             {links.map((link) => (

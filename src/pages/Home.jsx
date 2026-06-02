@@ -36,7 +36,7 @@ const faqs = [
 function StarRating({ rating }) {
   return (
     <div className="stars">
-      {[1,2,3,4,5].map(s => <span key={s} className={s <= rating ? "star on" : "star"}>★</span>)}
+      {[1, 2, 3, 4, 5].map(s => <span key={s} className={s <= rating ? "star on" : "star"}>★</span>)}
     </div>
   );
 }
