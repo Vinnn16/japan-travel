@@ -15,13 +15,10 @@ function Navigasi() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Tutup menu saat pindah halaman
   useEffect(() => {
     setExpanded(false);
   }, [location]);
 
-  // Di home: transparan jika belum scroll, solid jika sudah scroll
-  // Di halaman lain: selalu solid
   const isTransparent = isHome && !scrolled;
 
   const links = [
@@ -36,12 +33,12 @@ function Navigasi() {
     <Navbar
       expand="lg"
       expanded={expanded}
-      className={`konten-navbar ${isTransparent ? "nav-transparent" : "nav-solid"}`}
+      className={`konten-navbar ${isTransparent ? "tema-transparan" : "tema-solid"}`}
     >
       <Container>
         {/* Brand */}
         <Navbar.Brand as={Link} to="/" className="nav-brand">
-          <div className="nav-brand-icon">🗾</div>
+          <div className="nav-brand-icon">⛩️</div>
           <span className="nav-brand-text">Japan Travel</span>
         </Navbar.Brand>
 
@@ -68,7 +65,6 @@ function Navigasi() {
                 onClick={() => setExpanded(false)}
               >
                 {link.label}
-                {location.pathname === link.to && <span className="nav-dot" />}
               </Nav.Link>
             ))}
             <Link
@@ -76,7 +72,7 @@ function Navigasi() {
               className="nav-book-btn"
               onClick={() => setExpanded(false)}
             >
-              Book Now
+              Mulai Perjalanan
             </Link>
           </Nav>
         </Navbar.Collapse>

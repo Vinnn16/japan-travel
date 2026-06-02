@@ -1,31 +1,54 @@
-/* ===== BASE ===== */
+/* ===== BASE NAVBAR ===== */
 .konten-navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1050;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 16px 0;
 }
 
-/* Transparan — hanya di hero home sebelum scroll */
-.nav-transparent {
+/* ===== TEMA TRANSPARAN (DI HOME) ===== */
+.tema-transparan {
   background: transparent;
   box-shadow: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Solid — setelah scroll atau di halaman lain */
-.nav-solid {
-  background: rgba(10, 10, 25, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 4px 24px rgba(0,0,0,0.3);
-  padding: 12px 0;
+.tema-transparan .nav-brand-text,
+.tema-transparan .nav-item-link {
+  color: #ffffff !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* Menjamin teks terbaca meski di latar terang */
 }
 
-/* ===== BRAND ===== */
+.tema-transparan .toggler-bar {
+  background: #ffffff;
+}
+
+/* ===== TEMA SOLID (SETELAH SCROLL / HALAMAN LAIN) ===== */
+.tema-solid {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tema-solid .nav-brand-text {
+  color: #111111 !important;
+}
+
+.tema-solid .nav-item-link {
+  color: #444444 !important;
+}
+
+.tema-solid .toggler-bar {
+  background: #111111;
+}
+
+/* ===== BRANDING ===== */
 .nav-brand {
   display: flex;
   align-items: center;
@@ -34,152 +57,168 @@
 }
 
 .nav-brand-icon {
-  font-size: 28px;
+  font-size: 32px;
   line-height: 1;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
 .nav-brand-text {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
-  color: white !important;
   letter-spacing: -0.02em;
-  transition: color 0.2s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: color 0.3s;
 }
 
 .nav-brand:hover .nav-brand-text {
-  color: #f0c060 !important;
+  color: #BC002D !important;
+  /* Japan Red */
 }
 
-/* ===== HAMBURGER CUSTOM ===== */
+/* ===== HAMBURGER MENU ===== */
 .nav-toggler {
-  background: rgba(255,255,255,0.1) !important;
-  border: 1px solid rgba(255,255,255,0.2) !important;
-  border-radius: 8px !important;
-  padding: 8px 10px !important;
+  border: none !important;
+  background: transparent !important;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
+}
+
+.nav-toggler:focus {
+  box-shadow: none !important;
 }
 
 .toggler-bar {
   display: block;
-  width: 22px;
+  width: 26px;
   height: 2px;
-  background: white;
   border-radius: 2px;
   transition: all 0.3s;
 }
 
-/* ===== NAV MENU ===== */
+/* ===== NAV MENU LINKS ===== */
 .nav-menu {
   align-items: center;
-  gap: 2px;
+  gap: 15px;
 }
 
 .nav-item-link {
   position: relative;
-  color: rgba(255, 255, 255, 0.8) !important;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 8px 14px !important;
-  border-radius: 8px;
-  transition: all 0.2s;
-  letter-spacing: 0.01em;
-  text-decoration: none !important;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 0 !important;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
-.nav-item-link:hover {
-  color: white !important;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Active state */
-.nav-item-link.nav-active {
-  color: white !important;
-  font-weight: 700;
-}
-
-/* Dot indicator bawah link aktif */
-.nav-dot {
+/* Garis bawah elegan saat hover & active */
+.nav-item-link::after {
+  content: '';
   position: absolute;
-  bottom: 2px;
+  bottom: 0;
   left: 50%;
+  width: 0;
+  height: 2px;
+  background: #BC002D;
+  /* Japan Red */
+  transition: all 0.3s ease;
   transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  background: #f0c060;
-  border-radius: 50%;
 }
 
-/* ===== BOOK NOW BUTTON ===== */
+.nav-item-link:hover::after,
+.nav-item-link.nav-active::after {
+  width: 100%;
+}
+
+.nav-item-link:hover,
+.nav-item-link.nav-active {
+  color: #BC002D !important;
+}
+
+.tema-transparan .nav-item-link:hover,
+.tema-transparan .nav-item-link.nav-active {
+  color: #ffffff !important;
+}
+
+.tema-transparan .nav-item-link::after {
+  background: #ffffff;
+}
+
+/* ===== BUTTON: MULAI PERJALANAN ===== */
 .nav-book-btn {
   display: inline-block;
-  margin-left: 12px;
-  padding: 9px 20px;
-  background: linear-gradient(135deg, #e63946, #c1121f);
+  margin-left: 15px;
+  padding: 10px 24px;
+  background: #BC002D;
+  /* Japan Red */
   color: white !important;
   font-size: 14px;
   font-weight: 700;
-  border-radius: 99px;
+  border-radius: 4px;
+  /* Sudut sedikit tegas ala desain Jepang */
   text-decoration: none !important;
-  transition: all 0.25s;
-  box-shadow: 0 2px 12px rgba(230, 57, 70, 0.4);
-  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
 }
 
 .nav-book-btn:hover {
+  background: #8A0021;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
-  color: white !important;
+  box-shadow: 0 4px 15px rgba(188, 0, 45, 0.4);
 }
 
-/* ===== MOBILE ===== */
+/* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 991px) {
   .konten-navbar {
     padding: 12px 0;
   }
 
   .navbar-collapse {
-    background: rgba(10, 10, 25, 0.98);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 16px;
-    margin-top: 12px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Memaksa teks jadi hitam di mobile menu walau sedang transparan */
+  .tema-transparan .navbar-collapse .nav-item-link {
+    color: #111111 !important;
+    text-shadow: none;
+  }
+
+  .tema-transparan .navbar-collapse .nav-item-link:hover,
+  .tema-transparan .navbar-collapse .nav-item-link.nav-active {
+    color: #BC002D !important;
+  }
+
+  .tema-transparan .navbar-collapse .nav-item-link::after {
+    background: #BC002D;
   }
 
   .nav-menu {
     flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
+    align-items: flex-start;
+    gap: 15px;
   }
 
   .nav-item-link {
-    padding: 12px 16px !important;
-    border-radius: 10px;
-    font-size: 15px;
+    margin: 0;
+    width: 100%;
   }
 
-  .nav-item-link.nav-active {
-    background: rgba(255,255,255,0.08);
-  }
-
-  .nav-dot {
-    left: auto;
-    right: 14px;
-    bottom: 50%;
-    transform: translateY(50%);
-    width: 6px;
-    height: 6px;
+  .nav-item-link::after {
+    left: 0;
+    transform: none;
   }
 
   .nav-book-btn {
     margin-left: 0;
-    margin-top: 8px;
+    margin-top: 15px;
+    width: 100%;
     text-align: center;
-    padding: 12px 20px;
-    border-radius: 10px;
-    display: block;
   }
 }
