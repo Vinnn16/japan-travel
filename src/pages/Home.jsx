@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Accordion } from "react-bootstrap";
+import CustomerReview from "../components/CustomerReview";
 import "../styles/Home.css";
 
 const destinations = [
@@ -10,12 +11,6 @@ const destinations = [
   { name: "Hokkaido", img: "https://images.pexels.com/photos/2031689/pexels-photo-2031689.jpeg?auto=compress&cs=tinysrgb&w=800", tag: "Nature", desc: "Pulau utara Jepang dengan pemandangan alam yang spektakuler di setiap musim." },
   { name: "Kawaguchiko", img: "https://images.pexels.com/photos/1108701/pexels-photo-1108701.jpeg?auto=compress&cs=tinysrgb&w=800", tag: "Scenic", desc: "Danau indah dengan latar Gunung Fuji yang menjadi ikon Jepang di seluruh dunia." },
   { name: "Shirakawago", img: "https://images.pexels.com/photos/16592317/pexels-photo-16592317/free-photo-of-dingin-salju-kayu-pemandangan.jpeg?auto=compress&cs=tinysrgb&w=800", tag: "Heritage", desc: "Desa warisan dunia UNESCO dengan rumah tradisional beratap jerami yang memukau." },
-];
-
-const reviews = [
-  { name: "Andi Saputra", origin: "Jakarta", destination: "Tokyo", rating: 5, comment: "Perjalanan ke Tokyo benar-benar luar biasa! Panduan wisatanya sangat membantu.", initials: "AS", color: "#185FA5", bg: "#E6F1FB" },
-  { name: "Sari Rahayu", origin: "Surabaya", destination: "Kyoto", rating: 5, comment: "Kyoto di musim gugur sungguh indah. Rekomendasinya sangat tepat!", initials: "SR", color: "#0F6E56", bg: "#E1F5EE" },
-  { name: "Dian Pratama", origin: "Bandung", destination: "Osaka", rating: 4, comment: "Pengalaman seru di Osaka, terutama street food-nya. Sangat worth it!", initials: "DP", color: "#854F0B", bg: "#FAEEDA" },
 ];
 
 const stats = [
@@ -32,14 +27,6 @@ const faqs = [
   { q: "Apa transportasi terbaik di Jepang?", a: "JR Pass adalah pilihan terbaik untuk perjalanan antar kota. Untuk dalam kota, gunakan subway dan bus yang sangat efisien dan tepat waktu." },
   { q: "Kapan waktu terbaik mengunjungi Jepang?", a: "Musim semi (Maret-Mei) untuk melihat sakura, dan musim gugur (Oktober-November) untuk foliage merah. Hindari Golden Week (akhir April-awal Mei) karena sangat ramai." },
 ];
-
-function StarRating({ rating }) {
-  return (
-    <div className="stars">
-      {[1, 2, 3, 4, 5].map(s => <span key={s} className={s <= rating ? "star on" : "star"}>★</span>)}
-    </div>
-  );
-}
 
 function Home() {
   return (
@@ -123,9 +110,9 @@ function Home() {
               <p className="why-desc">Kami mengkhususkan diri dalam tur yang disesuaikan dengan kebutuhan kamu — dari tur kota hingga petualangan alam, semua dirancang untuk memberikan pengalaman terbaik.</p>
               <div className="why-points">
                 {[
-                  { icon: "", title: "Tur Tersesuaikan", desc: "Setiap perjalanan dirancang khusus sesuai preferensi dan budget kamu." },
-                  { icon: "", title: "Pemandu Berpengalaman", desc: "Tim kami fasih berbahasa Indonesia dan memahami budaya Jepang secara mendalam." },
-                  { icon: "", title: "Harga Transparan", desc: "Tidak ada biaya tersembunyi — semua sudah termasuk dalam paket kami." },
+                  { icon: "🎯", title: "Tur Tersesuaikan", desc: "Setiap perjalanan dirancang khusus sesuai preferensi dan budget kamu." },
+                  { icon: "🗣️", title: "Pemandu Berpengalaman", desc: "Tim kami fasih berbahasa Indonesia dan memahami budaya Jepang secara mendalam." },
+                  { icon: "💰", title: "Harga Transparan", desc: "Tidak ada biaya tersembunyi — semua sudah termasuk dalam paket kami." },
                 ].map((p, i) => (
                   <div key={i} className="why-point">
                     <div className="why-icon">{p.icon}</div>
@@ -171,35 +158,12 @@ function Home() {
         </Container>
       </section>
 
-      {/* ===== REVIEWS (display only) ===== */}
+      {/* ===== REVIEWS (dari API, tanpa form) ===== */}
       <section className="section-reviews-home">
-        <Container>
-          <div className="section-header">
-            <span className="section-tag">TESTIMONI</span>
-            <h2 className="section-title">Apa Kata Mereka?</h2>
-            <p className="section-sub">Ribuan wisatawan telah mempercayakan perjalanan mereka kepada kami.</p>
-          </div>
-          <Row>
-            {reviews.map((r, i) => (
-              <Col key={i} md={4} sm={12} className="mb-4">
-                <div className="review-card-home">
-                  <StarRating rating={r.rating} />
-                  <p className="review-text-home">"{r.comment}"</p>
-                  <div className="reviewer-home">
-                    <div className="avatar-home" style={{ background: r.bg, color: r.color }}>{r.initials}</div>
-                    <div>
-                      <p className="rv-name">{r.name}</p>
-                      <p className="rv-origin">{r.origin} · {r.destination}</p>
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-          <div className="text-center mt-2">
-            <Link to="/review" className="btn-view-all">Lihat Semua Review & Tulis Ulasan</Link>
-          </div>
-        </Container>
+        <CustomerReview showForm={false} />
+        <div className="text-center mt-2 pb-4">
+          <Link to="/review" className="btn-view-all">Lihat Semua Review & Tulis Ulasan</Link>
+        </div>
       </section>
 
       {/* ===== CTA BANNER ===== */}
