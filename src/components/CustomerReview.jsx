@@ -135,7 +135,7 @@ function CustomerReview({ showForm = false }) {
         {/* Form Tulis Review — hanya tampil di halaman /review */}
         {showForm && (
           <div className="review-form-wrapper">
-            <h5 className="form-title">✍️ Bagikan Pengalamanmu</h5>
+            <h5 className="form-title"> Bagikan Pengalamanmu</h5>
             {submitted && (
               <div className="success-msg">✅ Terima kasih! Ulasan kamu telah dikirim.</div>
             )}

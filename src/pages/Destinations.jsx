@@ -55,7 +55,7 @@ function Destinations() {
       <div className="dest-hero">
         <div className="dest-hero-overlay" />
         <div className="dest-hero-content">
-          <span className="dest-badge">🗺️ Explore Japan</span>
+          <span className="dest-badge"> Explore Japan</span>
           <h1>Destinasi Wisata Jepang</h1>
           <p>Dari metropolis modern hingga desa tradisional — temukan destinasi impian kamu.</p>
         </div>
@@ -73,9 +73,9 @@ function Destinations() {
                 <h2 className="dri-name">{d.name}</h2>
                 <p className="dri-desc">{d.desc}</p>
                 <div className="dri-meta">
-                  <span>⏱ {d.duration}</span>
-                  <span>📅 Best: {d.best}</span>
-                  <span>💰 {d.budget}</span>
+                  <span> {d.duration}</span>
+                  <span> Best: {d.best}</span>
+                  <span> {d.budget}</span>
                 </div>
                 <div className="dri-highlights">
                   <p className="dri-hl-title">Highlight:</p>

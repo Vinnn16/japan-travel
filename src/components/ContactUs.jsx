@@ -179,7 +179,7 @@ function ContactUs() {
                     </Col>
                   </Row>
                   <button type="submit" className="btn-send" disabled={loading}>
-                    {loading ? "Mengirim..." : "Kirim Pesan →"}
+                    {loading ? "Mengirim..." : "Kirim Pesan"}
                   </button>
                 </form>
               )}

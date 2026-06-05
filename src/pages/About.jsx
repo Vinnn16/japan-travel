@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import "../styles/About.css";
 
 const team = [
-  { name: "Hiroshi Tanaka", role: "Founder & CEO", initials: "HT", color: "#185FA5", bg: "#E6F1FB", desc: "15 tahun pengalaman di industri pariwisata Jepang." },
-  { name: "Siti Rahmawati", role: "Head of Operations", initials: "SR", color: "#0F6E56", bg: "#E1F5EE", desc: "Spesialis logistik perjalanan dan hubungan vendor." },
+  { name: "Elgi Juldrievin", role: "Founder & CEO", initials: "HT", color: "#185FA5", bg: "#E6F1FB", desc: "15 tahun pengalaman di industri pariwisata Jepang." },
+  { name: "Defri Maulana", role: "Head of Operations", initials: "SR", color: "#0F6E56", bg: "#E1F5EE", desc: "Spesialis logistik perjalanan dan hubungan vendor." },
   { name: "Kenji Yamamoto", role: "Lead Tour Guide", initials: "KY", color: "#854F0B", bg: "#FAEEDA", desc: "Pemandu berlisensi dengan pengetahuan budaya mendalam." },
-  { name: "Dewi Kusuma", role: "Customer Relations", initials: "DK", color: "#533AB7", bg: "#EEEDFE", desc: "Memastikan setiap pelanggan mendapat pengalaman terbaik." },
+  { name: "Ilham Maulidani", role: "Customer Relations", initials: "DK", color: "#533AB7", bg: "#EEEDFE", desc: "Memastikan setiap pelanggan mendapat pengalaman terbaik." },
 ];
 
 const values = [
-  { icon: "🎯", title: "Kustomisasi", desc: "Setiap perjalanan dirancang unik sesuai kebutuhan dan impian kamu." },
-  { icon: "🤝", title: "Kepercayaan", desc: "Transparansi penuh dalam setiap aspek layanan kami." },
-  { icon: "🌏", title: "Pengalaman", desc: "10+ tahun menghadirkan perjalanan tak terlupakan ke Jepang." },
-  { icon: "💚", title: "Sustainable", desc: "Kami berkomitmen pada pariwisata yang bertanggung jawab." },
+  { icon: "", title: "Kustomisasi", desc: "Setiap perjalanan dirancang unik sesuai kebutuhan dan impian kamu." },
+  { icon: "", title: "Kepercayaan", desc: "Transparansi penuh dalam setiap aspek layanan kami." },
+  { icon: "", title: "Pengalaman", desc: "10+ tahun menghadirkan perjalanan tak terlupakan ke Jepang." },
+  { icon: "", title: "Sustainable", desc: "Kami berkomitmen pada pariwisata yang bertanggung jawab." },
 ];
 
 function About() {
@@ -25,7 +25,7 @@ function About() {
       <div className="about-hero">
         <div className="about-hero-overlay" />
         <div className="about-hero-content">
-          <span className="about-badge">🗾 Tentang Kami</span>
+          <span className="about-badge"> Tentang Kami</span>
           <h1>Passionate About Japan</h1>
           <p>Kami bukan sekadar agen perjalanan — kami adalah pecinta Jepang yang ingin berbagi keajaiban negeri ini dengan dunia.</p>
         </div>
