@@ -1,0 +1,31 @@
+# ============================================================
+# terraform.tfvars — Nilai variabel untuk deployment
+# Japan Travel Cloud Project
+#
+# PENTING: File ini mengandung informasi sensitif!
+# Jangan di-commit ke repository Git!
+# Tambahkan terraform.tfvars ke .gitignore
+# ============================================================
+
+resource_group_name = "japan-travel-rg"
+location            = "southeastasia"
+project_name        = "japan-travel"
+
+# App Service
+app_service_sku = "F1"  # Free tier — ganti ke "S1" untuk mengaktifkan autoscaling
+
+# Database
+db_admin_username        = "admindb"
+db_admin_password        = "JapanTravel@2024!"  # Ganti dengan password yang kuat
+db_sku_name              = "B_Standard_B1ms"
+db_storage_gb            = 20
+db_backup_retention_days = 7
+
+# Monitoring
+alert_email = "elgijuldrievin36@mhs.eng.upr.ac.id"
+
+# Autoscaling
+autoscale_min_count     = 1
+autoscale_max_count     = 3
+autoscale_cpu_scale_out = 70
+autoscale_cpu_scale_in  = 30
