@@ -110,9 +110,9 @@ function Home() {
               <p className="why-desc">Kami mengkhususkan diri dalam tur yang disesuaikan dengan kebutuhan kamu — dari tur kota hingga petualangan alam, semua dirancang untuk memberikan pengalaman terbaik.</p>
               <div className="why-points">
                 {[
-                  { icon: "🎯", title: "Tur Tersesuaikan", desc: "Setiap perjalanan dirancang khusus sesuai preferensi dan budget kamu." },
-                  { icon: "🗣️", title: "Pemandu Berpengalaman", desc: "Tim kami fasih berbahasa Indonesia dan memahami budaya Jepang secara mendalam." },
-                  { icon: "💰", title: "Harga Transparan", desc: "Tidak ada biaya tersembunyi — semua sudah termasuk dalam paket kami." },
+                  { title: "Tur Tersesuaikan", desc: "Setiap perjalanan dirancang khusus sesuai preferensi dan budget kamu." },
+                  { title: "Pemandu Berpengalaman", desc: "Tim kami fasih berbahasa Indonesia dan memahami budaya Jepang secara mendalam." },
+                  { title: "Harga Transparan", desc: "Tidak ada biaya tersembunyi — semua sudah termasuk dalam paket kami." },
                 ].map((p, i) => (
                   <div key={i} className="why-point">
                     <div className="why-icon">{p.icon}</div>
